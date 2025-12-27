@@ -1,4 +1,5 @@
 import { TouchableOpacity, Text, View, StyleSheet, Image } from "react-native";
+import { router } from "expo-router";
 import rectangleTurquoise from "../assets/imagesShipping/rectangleTurquoise.png"
 import rectangleOrange from "../assets/imagesShipping/rectangleOrange.png"
 import rectangleOrangeBig from "../assets/imagesShipping/rectangleOrangeBig.png"
@@ -9,7 +10,7 @@ export default function AccountChooseCreate() {
         <View style={styles.container}>
             <Image source={rectangleTurquoise} style={styles.elementTop} />
             <Text style={styles.titleAccount}>Account</Text>
-            <TouchableOpacity style={styles.buttonAccount}>
+            <TouchableOpacity style={styles.buttonAccount} onPress={() => router.push("/sign-up")}>
                 <Text style={styles.colorButtonAccount}>Sign up</Text>
             </TouchableOpacity>
             <Image source={rectangleOrange} style={styles.elementMedium} />
