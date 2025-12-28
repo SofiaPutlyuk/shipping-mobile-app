@@ -19,7 +19,7 @@ export default function AccountChooseCreate() {
             </TouchableOpacity>
             <Image source={rectangleOrangeBig} style={styles.elementMediumTwo} />
             <View style={styles.containerButtonMethod}>
-                <TouchableOpacity style={styles.buttonMethod}>
+                <TouchableOpacity style={styles.buttonMethod} onPress={() => router.push("/sign-up-google")}>
                     <Text style={styles.colorButtonAccount}>Sign up with Google <AntDesign name="google" size={14} color="#FF8A00" /></Text>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.buttonMethod}>
