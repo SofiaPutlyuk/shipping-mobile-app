@@ -1,7 +1,11 @@
 const Account = require("../models/accountModel")
 exports.getCurrentUser = async (req, res) => {
-    const user = await Account.find()
-    return res.status(200).json(user)
+    try {
+        const user = await Account.find()
+        return res.status(200).json(user)
+    } catch (error) {
+        res.status(500).json({ message: "Помилка сервера" })
+    }
 }
 exports.createNewUser = async (req, res) => {
     const { firstName, lastName, age, email, password } = req.body

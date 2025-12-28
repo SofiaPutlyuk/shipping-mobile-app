@@ -1,6 +1,9 @@
 export const getUser = async () => {
     try {
-        const response = await fetch("http://localhost:6000/api/account")
+        const response = await fetch("http://localhost:5000/api/account")
+         if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json()
         return data
     } catch (error) {
@@ -8,7 +11,7 @@ export const getUser = async () => {
     }
 }
 export const postUser = async ({ firstName, lastName, age, email, password }) => {
-    if (password.length > 8) {
+    if (password.length < 8) {
         console.log("Пароль має містити 8 символів")
         return;
     }
@@ -18,13 +21,16 @@ export const postUser = async ({ firstName, lastName, age, email, password }) =>
     }
 
     try {
-        const response = await fetch("http://localhost:6000/api/account", {
+        const response = await fetch("http://localhost:5000/api/account", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({ firstName, lastName, age, email, password })
         })
+         if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
         const data = await response.json()
         return data
     } catch (error) {

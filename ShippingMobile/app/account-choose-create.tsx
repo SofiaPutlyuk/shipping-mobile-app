@@ -14,7 +14,7 @@ export default function AccountChooseCreate() {
                 <Text style={styles.colorButtonAccount}>Sign up</Text>
             </TouchableOpacity>
             <Image source={rectangleOrange} style={styles.elementMedium} />
-            <TouchableOpacity style={styles.buttonAccount}>
+            <TouchableOpacity style={styles.buttonAccount} onPress={() => router.push("/log-in")}>
                 <Text style={styles.colorButtonAccount}>Log in</Text>
             </TouchableOpacity>
             <Image source={rectangleOrangeBig} style={styles.elementMediumTwo} />
@@ -56,11 +56,11 @@ const styles = StyleSheet.create({
         right: 0,
         zIndex: -1
     },
-    elementMediumTree:{
-      position:"absolute",
-      left:0,
-      zIndex:-1,
-      bottom:30
+    elementMediumTree: {
+        position: "absolute",
+        left: 0,
+        zIndex: -1,
+        bottom: 30
     },
     titleAccount: {
         fontSize: 48,
