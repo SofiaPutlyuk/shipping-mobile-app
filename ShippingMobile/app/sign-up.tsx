@@ -1,4 +1,5 @@
 import { View, Text, TextInput, StyleSheet, TouchableOpacity, ImageBackground, Image } from "react-native"
+import { ScrollView } from "react-native";
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
 import MaterialIcons from '@expo/vector-icons/MaterialIcons';
