@@ -1,6 +1,6 @@
-export const logIn = async ({ email, password }) => {
+export const logIn = async ({ email, password } , showWarning) => {
     if (!email || !password) {
-        console.log("Заповніть поля")
+        showWarning("Заповніть поля")
         return
     }
     try {
@@ -13,11 +13,11 @@ export const logIn = async ({ email, password }) => {
         })
         if (!response.ok) {
             const error = await response.json()
-            alert(error.message)
+            showWarning(error.message)
             return
         }
         const data = await response.json()
-        alert("Ви успішно залогінені")
+        showWarning("Ви успішно залогінені")
         return data
     } catch (error) {
         console.log("Error", error.message)
