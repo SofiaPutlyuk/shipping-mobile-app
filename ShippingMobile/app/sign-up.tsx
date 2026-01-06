@@ -9,6 +9,7 @@ import backgroundAccount from "../assets/imagesShipping/backgroundAccount.png"
 import orangeRectangle from "../assets/imagesShipping/rectangleOrange.png"
 import greenBigRectangle from "../assets/imagesShipping/rectangleGreenBig.png"
 import orangeBigRectangle from "../assets/imagesShipping/rectangleOrangeBig.png"
+import ModalWarning from "./modalWarning";
 import { postUser} from "../api/sign-up"
 import { useState } from "react";
 export default function SignUp() {
@@ -17,12 +18,22 @@ export default function SignUp() {
     const [age, setAge] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [textModal , setTextModal] = useState("")
+    const [visibleModal , setVisibleModal] = useState(false)
+    const showModal = (text:string) => {
+        setTextModal(text)
+        setVisibleModal(true)
+    }
+    const closeModal = () => {
+        setVisibleModal(false)
+    }
     const handleSubmit = () => {
         const numericAge = Number(age)
-        postUser({ firstName, lastName, age: numericAge, email, password })
+        postUser({ firstName, lastName, age: numericAge, email, password }, showModal )
     }
     return (
         <ImageBackground source={backgroundAccount} style={styles.background}>
+            <ModalWarning visible={visibleModal} text={textModal} closeModal={closeModal}/>
             <Image source={orangeRectangle} style={styles.elementTop} />
             <Image source={greenBigRectangle} style={styles.elementMediumOne} />
             <Image source={orangeBigRectangle} style={styles.elementMediumTwo} />

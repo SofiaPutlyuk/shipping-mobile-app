@@ -10,13 +10,13 @@ export const getUser = async () => {
         console.log("Error", error)
     }
 }
-export const postUser = async ({ firstName, lastName, age, email, password }) => {
+export const postUser = async ({ firstName, lastName, age, email, password } , showWarning) => {
     if (password.length < 8) {
-        console.log("Пароль має містити 8 символів")
+        showWarning("Пароль має містити 8 символів")
         return;
     }
     if (!firstName || !age || !email || !password) {
-        console.log("Заповніть поля")
+        showWarning("Заповніть поля")
         return
     }
 
@@ -34,6 +34,6 @@ export const postUser = async ({ firstName, lastName, age, email, password }) =>
         const data = await response.json()
         return data
     } catch (error) {
-        console.log("Error", error)
+        showWarning("Error", error)
     }
 }
